@@ -113,6 +113,7 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
     private btnLetra25b:Button;
     private contador1 : number;
     private contador2: number;
+    private contador0: number;
     
 
 
@@ -142,11 +143,13 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
     private lblLvl:Label;
     private lblLvl3:Label;
     private btnValidar2:Button;
+    private btnClear:Button;
     
     private lblPreg1:Label;
     private StringAux: string;
     private btnNextLvl1:Button;
     private btnNextLvl2:Button;
+    private lblRest:Label;
 
     
     
@@ -161,6 +164,7 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
         this.palabras= ["house","car","sea","dog","life","red"];
         this.contador1=0;
         this.contador2=0;
+        this.contador0=0;
         
     }
 
@@ -192,20 +196,15 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
        //this.buttonComo.setListener(this);
 
        //AÑADIR BOTON SALIR
-       this.buttonSalir=new Button(this.motor,this.pmx*0.4,this.pmy*2.1,200,100);
+       this.buttonSalir=new Button(this.motor,this.pmw/2-100,this.pmy*1.8,200,100);
        this.buttonSalir.setTexto("SALIR");
        this.motor.addViewToParentView(this.window1,this.buttonSalir);
        this.buttonSalir.setImagePath('./assets/btn.png')
        this.buttonSalir.setListener(this);
        
-       //AÑADIR BOTON CONTINUAR
-       this.buttonContinuar=new Button(this.motor,this.pmx*0.4,this.pmy*1.2,200,100);
-       this.buttonContinuar.setTexto("CONTINUAR");
-       this.motor.addViewToParentView(this.window1,this.buttonContinuar);
-       this.buttonContinuar.setImagePath('./assets/btn.png');
-       this.buttonContinuar.setListener(this);
+    
        //AÑADIR BOTON NUEVO
-       this.buttonNuevo=new Button(this.motor,this.pmx*0.4,this.pmy*0.3,200,100);
+       this.buttonNuevo=new Button(this.motor,this.pmw/2-100,this.pmy*0.5,200,100);
        this.buttonNuevo.setTexto("NUEVO");
        this.motor.addViewToParentView(this.window1,this.buttonNuevo);
        this.buttonNuevo.setImagePath('./assets/btn.png');
@@ -239,39 +238,149 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
             this.StringAux += btn.getLbl().getTexto()
             this.lblPreg.setTexto(this.StringAux);
         }
+
+        if(btn==this.btnClear){
+
+            this.StringAux = "";
+            this.lblPreg.setTexto(this.StringAux);
+            this.btnLetra1.setImagePath('./assets/a.png');
+            this.btnLetra2.setImagePath("");
+            this.btnLetra3.setImagePath("");
+            this.btnLetra4.setImagePath("");
+            this.btnLetra5.setImagePath("");
+            this.btnLetra6.setImagePath("");
+            this.btnLetra7.setImagePath("");
+            this.btnLetra8.setImagePath("");
+            this.btnLetra9.setImagePath("");
+            this.btnLetra10.setImagePath("");
+            this.btnLetra11.setImagePath("");
+            this.btnLetra12.setImagePath("");
+            this.btnLetra13.setImagePath("");
+            this.btnLetra14.setImagePath("");
+            this.btnLetra15.setImagePath("");
+            this.btnLetra16.setImagePath("");
+            this.btnLetra17.setImagePath("");
+            this.btnLetra18.setImagePath("");
+            this.btnLetra19.setImagePath("");
+            this.btnLetra20.setImagePath("");
+            this.btnLetra21.setImagePath("");
+            this.btnLetra22.setImagePath("");
+            this.btnLetra23.setImagePath("");
+            this.btnLetra24.setImagePath("");
+            this.btnLetra25.setImagePath("");
+            this.btnLetra26.setImagePath("");
+            this.btnLetra27.setImagePath("");
+            this.btnLetra28.setImagePath("");
+            this.btnLetra29.setImagePath("");
+            this.btnLetra30.setImagePath("");
+            this.btnLetra31.setImagePath("");
+            this.btnLetra32.setImagePath("");
+            this.btnLetra33.setImagePath("");
+            this.btnLetra34.setImagePath("");
+            this.btnLetra35.setImagePath("");
+            this.btnLetra36.setImagePath("");
+            this.btnValidar.setImagePath("");
+            //
+            this.btnLetra1a.setImagePath('./assets/a.png');
+            this.btnLetra2a.setImagePath('./assets/a.png');
+            this.btnLetra3a.setImagePath("'./assets/a.png'");
+            this.btnLetra4a.setImagePath("");
+            this.btnLetra5a.setImagePath("");
+            this.btnLetra6a.setImagePath("");
+            this.btnLetra7a.setImagePath("");
+            this.btnLetra8a.setImagePath("");
+            this.btnLetra9a.setImagePath("");
+            this.btnLetra10a.setImagePath("");
+            this.btnLetra11a.setImagePath("");
+            this.btnLetra12a.setImagePath("");
+            this.btnLetra13a.setImagePath("");
+            this.btnLetra14a.setImagePath("");
+            this.btnLetra15a.setImagePath("");
+            this.btnLetra16a.setImagePath("");
+            //
+            this.btnLetra1b.setImagePath("");
+            this.btnLetra2b.setImagePath("");
+            this.btnLetra3b.setImagePath("");
+            this.btnLetra4b.setImagePath("");
+            this.btnLetra5b.setImagePath("");
+            this.btnLetra6b.setImagePath("");
+            this.btnLetra7b.setImagePath("");
+            this.btnLetra8b.setImagePath("");
+            this.btnLetra9b.setImagePath("");
+            this.btnLetra10b.setImagePath("");
+            this.btnLetra11b.setImagePath("");
+            this.btnLetra12b.setImagePath("");
+            this.btnLetra13b.setImagePath("");
+            this.btnLetra14b.setImagePath("");
+            this.btnLetra15b.setImagePath("");
+            this.btnLetra16b.setImagePath("");
+            this.btnLetra17b.setImagePath("");
+            this.btnLetra18b.setImagePath("");
+            this.btnLetra19b.setImagePath("");
+            this.btnLetra20b.setImagePath("");
+            this.btnLetra21b.setImagePath("");
+            this.btnLetra22b.setImagePath("");
+            this.btnLetra23b.setImagePath("");
+            this.btnLetra24b.setImagePath("");
+            this.btnLetra25b.setImagePath("");
+
+        }
         if(btn==this.btnValidar3){
             if(this.StringAux==this.palabras[0]){
                 this.lblPreg.setTexto("CORRECTO");
-                this.contador1++;
+                this.contador2++;
                 this.StringAux="";
+                this.lblRest.setTexto("Palabras Restantes: 3/"+this.contador2);
                 
                 if(this.contador2==3){
-                    this.lblPreg.setTexto("HAS GANADO");
+                    this.w3=new Window(this.motor,this.pmx,this.pmy,this.pmw,this.pmh);
+                    this.motor.addViewToParentView(this.imagenFondo,this.w3);
+                    this.imagenGanar=new Imagen(this.motor,0,0,this.pmw,this.pmh);
+                    this.imagenGanar.setImg('./assets/hasganado.jpg');
+                    this.motor.addViewToParentView(this.w3,this.imagenGanar);
+                    this.motor.addViewToParentView(this.w3,this.buttonX);
                 }
             }
             else if(this.StringAux==this.palabras[1]){
                 this.lblPreg.setTexto("CORRECTO");
-                this.contador1++;
+                this.contador2++;
                 this.StringAux="";
+                this.lblRest.setTexto("Palabras Restantes: 3/"+this.contador2);
+                
                 
                 if(this.contador2==3){
-                    this.lblPreg.setTexto("HAS GANADO");
+                    this.w3=new Window(this.motor,this.pmx,this.pmy,this.pmw,this.pmh);
+                    this.motor.addViewToParentView(this.imagenFondo,this.w3);
+                    this.imagenGanar=new Imagen(this.motor,0,0,this.pmw,this.pmh);
+                    this.imagenGanar.setImg('./assets/hasganado.jpg');
+                    this.motor.addViewToParentView(this.w3,this.imagenGanar);
+                    this.motor.addViewToParentView(this.w3,this.buttonX);
                 }
             }
             else if(this.StringAux==this.palabras[2]){
                 this.lblPreg.setTexto("CORRECTO");
-                this.contador1++;
+                this.contador2++;
                 this.StringAux="";
+                this.lblRest.setTexto("Palabras Restantes: 3/"+this.contador2);
+                
                 
                 if(this.contador2==3){
-                    this.lblPreg.setTexto("HAS GANADO");
+                    this.w3=new Window(this.motor,this.pmx,this.pmy,this.pmw,this.pmh);
+                    this.motor.addViewToParentView(this.imagenFondo,this.w3);
+                    this.imagenGanar=new Imagen(this.motor,0,0,this.pmw,this.pmh);
+                    this.imagenGanar.setImg('./assets/hasganado.jpg');
+                    this.motor.addViewToParentView(this.w3,this.imagenGanar);
+                    this.motor.addViewToParentView(this.w3,this.buttonX);
                 }
             }
         }
         if(btn==this.btnValidar){
             if(this.StringAux==this.palabras[5]){
                 this.lblPreg.setTexto("CORRECTO");
-                this.btnNextLvl1.getLbl().setTexto("SIGUIENTE NIVEL");
+                this.btnNextLvl1.getLbl().setTexto("");
+                this.contador0++;
+                this.btnNextLvl1.setImagePath('./assets/n.png');
+                
             }
             else{
 
@@ -283,16 +392,20 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
                 
                 this.contador1++;
                 this.StringAux="";
+                this.lblRest.setTexto("Palabras Restantes: 2/"+this.contador1);
                 if(this.contador1==2){
-                    this.btnNextLvl2.getLbl().setTexto("SIGUIENTE NIVEL");
+                    this.btnNextLvl2.getLbl().setTexto("");
+                    this.btnNextLvl2.setImagePath('./assets/n.png');
                 }
             }
             else if(this.StringAux==this.palabras[4]) {
                 this.lblPreg.setTexto("CORRECTO");
                 this.contador1++;
                 this.StringAux="";
+                this.lblRest.setTexto("Palabras Restantes: 2/"+this.contador1);
                 if(this.contador1==2){
-                    this.btnNextLvl2.getLbl().setTexto("SIGUIENTE NIVEL");
+                    this.btnNextLvl2.getLbl().setTexto("");
+                    this.btnNextLvl2.setImagePath('./assets/n.png');
                 }
 
             }
@@ -317,11 +430,11 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
                          // this.buttonX.setImagePath('./assets/x.png');
              
                           //CREAMOS BOTON VALIDAR
-                          this.btnValidar2 = new Button (this.motor,this.pmx*2.85,this.pmh-50,50,50);
-                          this.btnValidar2.setTexto("Validar");
+                          this.btnValidar2 = new Button (this.motor,this.pmw-200,this.pmh-100,200,100);
+                         this.btnValidar2.setTexto("");
                           this.motor.addViewToParentView(this.wlvl2,this.btnValidar2);
                           this.btnValidar2.setListener(this);
-                          this.btnValidar2.setImagePath('./assets/x.png');
+                         this.btnValidar2.setImagePath('./assets/s.png');
              
                          //CREAMOS LABEL DE LA PREGUNTA
                          this.lblPreg= new Label(this.motor,this.pmx*1.3,this.pmy*0.3,0,0);
@@ -329,6 +442,12 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
                          this.StringAux = "";
                          this.motor.addViewToParentView(this.wlvl2,this.lblPreg);
                          this.lblPreg.setFontStyle("50px Comic Sans MS");
+                          //CREAMOS LABEL DE PUNTOS
+                          this.lblRest= new Label(this.motor,this.pmx*1.3,this.pmh-50,50,50);
+                          this.lblRest.setTexto("");
+                          this.lblRest.setTexto("Palabras Restantes: 2/"+this.contador1);
+                          this.motor.addViewToParentView(this.wlvl2,this.lblRest);
+                          this.lblPreg.setFontStyle("50px Comic Sans MS");
              
                          //CREAMOS LABEL DEL NIVEL
                          this.lblLvl3= new Label(this.motor,0,0,200,50);
@@ -494,12 +613,24 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
              this.buttonX.setListener(this);
             this.buttonX.setImagePath('./assets/x.png');
 
+            
+
              //CREAMOS BOTON VALIDAR
-             this.btnValidar = new Button (this.motor,this.pmx*2.85,this.pmh-50,50,50);
-             this.btnValidar.setTexto("Validar");
+             this.btnValidar = new Button (this.motor,this.pmw-200,this.pmh-100,200,100);
+             this.btnValidar.setTexto("");
              this.motor.addViewToParentView(this.w2,this.btnValidar);
              this.btnValidar.setListener(this);
-             this.btnValidar.setImagePath('./assets/x.png');
+             this.btnValidar.setImagePath('./assets/s.png');
+
+             //CREAMOS BOTON CLEAR
+             this.btnClear = new Button (this.motor,this.pmw-150,(this.pmh/2)-25,100,50);
+             this.btnClear.setTexto("");
+             this.motor.addViewToParentView(this.w2,this.btnClear);
+             this.btnClear.setListener(this);
+             this.btnClear.setImagePath('./assets/cls.png');
+             
+
+
              //CREAMOS BOTON NEXT LVL
               this.btnNextLvl1 = new Button (this.motor,50,this.pmh-150,100,100);
               this.btnNextLvl1.setTexto("");
@@ -521,6 +652,12 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
             this.lblLvl.setTexto("Nivel 1");
             this.motor.addViewToParentView(this.w2,this.lblLvl);
             this.lblLvl.setFontStyle("50px Comic Sans MS");
+
+            this.lblRest= new Label(this.motor,this.pmx*1.3,this.pmh-50,50,50);
+            this.lblRest.setTexto("");
+            this.lblRest.setTexto("Palabras Restantes: 1/"+this.contador0);
+            this.motor.addViewToParentView(this.w2,this.lblRest);
+            this.lblPreg.setFontStyle("50px Comic Sans MS");
 
             //CREAMOS LOS 16 BOTONES PARA EL PRIMER NIVEL 
              /////
@@ -656,13 +793,19 @@ if(btn==this.btnNextLvl2){
               this.motor.addViewToParentView(this.wlvl2,this.buttonX);
               this.buttonX.setListener(this);
               this.buttonX.setImagePath('./assets/x.png');
+
+              this.lblRest= new Label(this.motor,this.pmx*1.3,this.pmh-50,50,50);
+              this.lblRest.setTexto("");
+              this.lblRest.setTexto("Palabras Restantes: 3/"+this.contador2);
+              this.motor.addViewToParentView(this.wlvl2,this.lblRest);
+              this.lblPreg.setFontStyle("50px Comic Sans MS");
  
               //CREAMOS BOTON VALIDAR
-              this.btnValidar3 = new Button (this.motor,this.pmx*2.85,this.pmh-50,50,50);
-              this.btnValidar3.setTexto("Validar");
+              this.btnValidar3 = new Button (this.motor,this.pmw-200,this.pmh-100,200,100);
+              this.btnValidar3.setTexto("");
               this.motor.addViewToParentView(this.wlvl2,this.btnValidar3);
               this.btnValidar3.setListener(this);
-              this.btnValidar3.setImagePath('./assets/x.png');
+              this.btnValidar3.setImagePath('./assets/s.png');
  
              //CREAMOS LABEL DE LA PREGUNTA
              this.lblPreg= new Label(this.motor,this.pmx*1.3,this.pmy*0.3,0,0);
@@ -674,7 +817,7 @@ if(btn==this.btnNextLvl2){
              //CREAMOS LABEL DEL NIVEL
              this.lblLvl3= new Label(this.motor,0,0,200,50);
              this.lblLvl3.setTexto("Nivel 3");
-             this.motor.addViewToParentView(this.wlvl2,this.lblLvl);
+             this.motor.addViewToParentView(this.wlvl2,this.lblLvl3);
              this.lblLvl3.setFontStyle("50px Comic Sans MS");
 
              //LINEA 1
@@ -892,9 +1035,7 @@ if(btn==this.btnNextLvl2){
 
         }
         //VOLVEMOS A LA PANTALLA EN LA QUE ESTABAMOS JUGANDO
-        if(btn==this.buttonContinuar){
-            this.motor.setViewVisibility(this.w2.uid,true);
-        }
+       
         //SALIR DEL JUEGO
         if(btn==this.buttonSalir){
             this.wComo=new Window(this.motor,this.pmx,this.pmy,this.pmw,this.pmh);
@@ -903,6 +1044,7 @@ if(btn==this.btnNextLvl2){
         //SALIMOS AL MENU INICIAL
         if(btn==this.buttonX){
             this.motor.setViewVisibility(this.w2.uid,false);
+            this.motor.setViewVisibility(this.wlvl2.uid,false);
             this.motor.setViewVisibility(this.w3.uid,false);
         }
         if(btn==this.buttonX2){
@@ -911,21 +1053,9 @@ if(btn==this.btnNextLvl2){
         //SI ACIERTAS LA PRIMERA PREGUNTA
        
         //SI ACIERTAS LA TERCERA PREGUNTA, PONEMOS NUEVA VIEW DE VICTORIA
-        else if(btn.getLbl().getTexto()==this.arrayRespCorrec[2]){
-            this.w3=new Window(this.motor,this.pmx,this.pmy,this.pmw,this.pmh);
-            this.motor.addViewToParentView(this.imagenFondo,this.w3);
-            this.imagenGanar=new Imagen(this.motor,0,0,this.pmw,this.pmh);
-            this.imagenGanar.setImg('./assets/hasganado.jpg');
-            this.motor.addViewToParentView(this.w3,this.imagenGanar);
-            this.motor.addViewToParentView(this.w3,this.buttonX);
-
-        }
-
+       
         //SI FALLAMOS SALIMOS AL MENU PRINCIPAL. AÑADIDOS A LA CONDICION TAMBIEN LOS BOTONES DE NUEVO Y CONTINUAR PARA NO QUITAR SU FUNCIONALIDAD
-        else if(btn!=this.buttonNuevo&& btn.getLbl().getTexto()!=this.arrayRespCorrec[0] && btn.getLbl().getTexto()!=this.arrayRespCorrec[1] && btn.getLbl().getTexto()!=this.arrayRespCorrec[2] && btn!=this.buttonContinuar) {
-            this.motor.setViewVisibility(this.w2.uid,false);
 
-        }
         
     
         
