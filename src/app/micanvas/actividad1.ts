@@ -5,6 +5,8 @@ import {Motor} from '../milib/engines/motor';
 import {Imagen} from '../milib/views/imgs/imagen';
 import {Window} from '../milib/views/window/Window';
 import {Button,ButtonListener} from '../milib/views/buttons/button';
+import {Letra} from '../milib/views/letras/letra';
+
 import {Label} from '../milib/views/labels/label';
 
 
@@ -65,11 +67,14 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
     private btnLetra34:Button;
     private btnLetra35:Button;
     private btnLetra36:Button;
+    private btnValidar:Button;
 
 
     private buttonX:Button;
     private buttonX2:Button;
     private arrayPreguntas: any[];
+    private palabras: any[];
+    
     private arrayResp: any[];
     private arrayRespCorrec: any[];
     private imagenTitulo:Imagen;
@@ -83,6 +88,7 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
     private lbl4Como:Label;
     private lbla:Label;
     private lblPreg1:Label;
+    private StringAux: string;
 
     
     
@@ -94,6 +100,7 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
         this.imagenFondo.setImg('./assets/1.jpg');
         this.motor.setRaiz(this.imagenFondo);
         this.crearEscenarioMenu();
+        this.palabras= ["house","cat","red","dog","life","sea"];
     }
 
     /**
@@ -117,11 +124,11 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
        this.motor.addViewToParentView(this.window1,this.imagenCentro);
         
        //AÑADIR BOTON COMO JUGAR
-       this.buttonComo=new Button(this.motor,this.pmx*2.7,this.pmy*2.7,100,50);
-       this.buttonComo.setTexto("COMO JUGAR");
-       this.motor.addViewToParentView(this.window1,this.buttonComo);
-       this.buttonComo.setImagePath('./assets/btn.png')
-       this.buttonComo.setListener(this);
+       //this.buttonComo=new Button(this.motor,this.pmx*2.7,this.pmy*2.7,100,50);
+       //this.buttonComo.setTexto("COMO JUGAR");
+       //this.motor.addViewToParentView(this.window1,this.buttonComo);
+       //this.buttonComo.setImagePath('./assets/btn.png')
+       //this.buttonComo.setListener(this);
 
        //AÑADIR BOTON SALIR
        this.buttonSalir=new Button(this.motor,this.pmx*0.4,this.pmy*2.1,200,100);
@@ -148,13 +155,25 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
         this.motor.addViewToParentView(this.window1,this.lbla);
         this.lbla.setTexto(""); 
         this.lbla.setFontStyle("12px Comic Sans MS");
-       
+        this.StringAux = "";
        
 
 
     }
     buttonListenerOnClick?(btn:Button):void{
-        btn.setImagePath('./assets/verde.jpg');
+        
+        //ESTE IF THE 36 BOTONES DEBERIA HACERSE COMPROBANDO ALGUN TIPO DE ARRAY O MATRIZ. NO NOS DABA TIEMPO LO SIENTO. ADEMAS, TUVILLA ESTA EN NUESTRO EQUIPO....
+        if(btn==this.btnLetra1 || btn==this.btnLetra2 || btn==this.btnLetra3 || btn==this.btnLetra4 || btn==this.btnLetra5 || btn==this.btnLetra6 || btn==this.btnLetra7 || btn==this.btnLetra8 || btn==this.btnLetra9 || btn==this.btnLetra10 || btn==this.btnLetra11 || btn==this.btnLetra12 || btn==this.btnLetra13 || btn==this.btnLetra14 || btn==this.btnLetra15 || btn==this.btnLetra16 || btn==this.btnLetra17 || btn==this.btnLetra18 || btn==this.btnLetra19 || btn==this.btnLetra20 || btn==this.btnLetra21 || btn==this.btnLetra22 || btn==this.btnLetra23 || btn==this.btnLetra24 || btn==this.btnLetra25 || btn==this.btnLetra26|| btn==this.btnLetra27 || btn==this.btnLetra28 || btn==this.btnLetra29|| btn==this.btnLetra30 || btn==this.btnLetra31 || btn==this.btnLetra32 || btn==this.btnLetra33 || btn==this.btnLetra34 || btn==this.btnLetra35 || btn==this.btnLetra36){
+            btn.setImagePath('./assets/verde.jpg');
+            this.StringAux += btn.getLbl().getTexto()
+            this.lblPreg.setTexto(this.StringAux);
+        }
+        if(btn==this.btnValidar){
+            if(this.StringAux==this.palabras[0]){
+                this.lblPreg.setTexto("CORRECTO");
+            }
+        }
+        
         if(btn==this.buttonNuevo){
             //CREAMOS WINDOW NUEVO
             this.w2=new Window(this.motor,this.pmx,this.pmy,this.pmw,this.pmh);
@@ -170,8 +189,15 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
              this.buttonX.setListener(this);
              this.buttonX.setImagePath('./assets/x.png');
 
+             //CREAMOS BOTON VALIDAR
+             this.btnValidar = new Button (this.motor,this.pmx*2.85,this.pmh-50,50,50);
+             this.btnValidar.setTexto("Validar");
+             this.motor.addViewToParentView(this.w2,this.btnValidar);
+             this.btnValidar.setListener(this);
+             this.btnValidar.setImagePath('./assets/x.png');
+
             //CREAMOS LABEL DE LA PREGUNTA
-            this.lblPreg= new Label(this.motor,this.pmx*1.3,0,0,0);
+            this.lblPreg= new Label(this.motor,this.pmx*1.3,this.pmy*0.3,0,0);
             this.lblPreg.setTexto("");
             this.motor.addViewToParentView(this.w2,this.lblPreg);
             this.lblPreg.setFontStyle("50px Comic Sans MS");
@@ -179,7 +205,7 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
             //CREAMOS LOS 25 BOTONES PARA LAS LETRAS 
             //LINEA 1
             this.btnLetra1 = new Button (this.motor,((this.pmw/2)-120),this.pmy*1.1,40,40);
-            this.btnLetra1.setTexto("a");
+            this.btnLetra1.setTexto("h");
             this.motor.addViewToParentView(this.w2,this.btnLetra1);
             this.btnLetra1.setListener(this);
             
@@ -199,7 +225,7 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
             this.btnLetra4.setListener(this);
 
             this.btnLetra5 = new Button (this.motor,((this.pmw/2)-120)+160,this.pmy*1.1,40,40);
-            this.btnLetra5.setTexto("a");
+            this.btnLetra5.setTexto("h");
             this.motor.addViewToParentView(this.w2,this.btnLetra5);
             this.btnLetra5.setListener(this);
 
@@ -209,7 +235,7 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
             this.btnLetra6.setListener(this);
             //LINEA 2
             this.btnLetra7 = new Button (this.motor,((this.pmw/2)-120),this.pmy*1.1+40,40,40);
-            this.btnLetra7.setTexto("b");
+            this.btnLetra7.setTexto("o");
             this.motor.addViewToParentView(this.w2,this.btnLetra7);
             this.btnLetra7.setListener(this);
 
@@ -219,7 +245,7 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
             this.btnLetra8.setListener(this);
 
             this.btnLetra9 = new Button (this.motor,((this.pmw/2)-120)+80,this.pmy*1.1+40,40,40);
-            this.btnLetra9.setTexto("b");
+            this.btnLetra9.setTexto("o");
             this.motor.addViewToParentView(this.w2,this.btnLetra9);
             this.btnLetra9.setListener(this);
 
@@ -241,12 +267,12 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
             
             //LINEA 3
             this.btnLetra13 = new Button (this.motor,((this.pmw/2)-120),this.pmy*1.1+80,40,40);
-            this.btnLetra13.setTexto("c");
+            this.btnLetra13.setTexto("s");
             this.motor.addViewToParentView(this.w2,this.btnLetra13);
             this.btnLetra13.setListener(this);
 
             this.btnLetra14 = new Button (this.motor,((this.pmw/2)-120)+40,this.pmy*1.1+80,40,40);
-            this.btnLetra14.setTexto("c");
+            this.btnLetra14.setTexto("u");
             this.motor.addViewToParentView(this.w2,this.btnLetra14);
             this.btnLetra14.setListener(this);
 
@@ -266,12 +292,12 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
             this.btnLetra17.setListener(this);
 
             this.btnLetra18 = new Button (this.motor,((this.pmw/2)-120)+200,this.pmy*1.1+80,40,40);
-            this.btnLetra18.setTexto("c");
+            this.btnLetra18.setTexto("s");
             this.motor.addViewToParentView(this.w2,this.btnLetra18);
             this.btnLetra18.setListener(this);
              //LINEA 4
              this.btnLetra19 = new Button (this.motor,((this.pmw/2)-120),this.pmy*1.1+120,40,40);
-             this.btnLetra19.setTexto("d");
+             this.btnLetra19.setTexto("e");
              this.motor.addViewToParentView(this.w2,this.btnLetra19);
              this.btnLetra19.setListener(this);
  
@@ -281,7 +307,7 @@ export class Actividad1 implements EventsAdminListener,ButtonListener{
              this.btnLetra20.setListener(this);
  
              this.btnLetra21 = new Button (this.motor,((this.pmw/2)-120)+80,this.pmy*1.1+120,40,40);
-             this.btnLetra21.setTexto("d");
+             this.btnLetra21.setTexto("s");
              this.motor.addViewToParentView(this.w2,this.btnLetra21);
              this.btnLetra21.setListener(this);
  
